@@ -7,7 +7,7 @@ import { ChangeEvent, useState } from "react"
 
 function App() {
   const [city, setCity] = useState("Riyadh")
-  const { data, isPending } = useQuery({
+  const { data, isSuccess, isPending } = useQuery({
     queryKey: ["aladanTime", city],
     queryFn: getAladanData,
   })
@@ -22,12 +22,31 @@ function App() {
         <div className="mb-16 mt-2 flex w-full items-center">
           <h1 className="text-4xl">صلواتي</h1>
           <CitySelect onChange={changeCity} countryName={"sa"} />
-          <h4 className=" text-2xl">
-            {data?.data[getCurrentDayNumber() - 1].date.gregorian.day}{" "}
-            {data?.data[getCurrentDayNumber() - 1].date.gregorian.month.en}|
-            {data?.data[getCurrentDayNumber() - 1].date.hijri.day}{" "}
-            {data?.data[getCurrentDayNumber() - 1].date.hijri.month.ar}
-          </h4>
+          {isSuccess ? (
+            <h4 className="flex gap-3 text-2xl">
+              <div className="flex gap-1">
+                <span>
+                  {
+                    data?.data[getCurrentDayNumber() - 1].date.gregorian.month
+                      .en
+                  }
+                </span>
+                <span>
+                  {data?.data[getCurrentDayNumber() - 1].date.gregorian.day}
+                </span>
+              </div>
+              <div className="flex gap-1">
+                <span>
+                  {data?.data[getCurrentDayNumber() - 1].date.hijri.month.ar}
+                </span>
+                <span>
+                  {data?.data[getCurrentDayNumber() - 1].date.hijri.day}
+                </span>
+              </div>
+            </h4>
+          ) : (
+            <h4 className="text-2xl">جار الحصول على التاريخ</h4>
+          )}
         </div>
         <HomePage isPending={isPending} data={data} />
       </div>
