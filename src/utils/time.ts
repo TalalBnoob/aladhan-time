@@ -3,7 +3,7 @@ export function to12HoursBased(time: string | undefined) {
   const minutes = time?.slice(3, 5)
 
   const newHours = hours > 12 ? hours - 12 : hours
-  const suffix = hours > 12 ? "م" : "ص"
+  const suffix = hours > 12 ? 'م' : 'ص'
 
   return `${suffix} ${newHours}:${minutes}`
 }

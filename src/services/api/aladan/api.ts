@@ -1,6 +1,6 @@
-import { QueryFunctionContext } from "@tanstack/react-query"
-import { getCurrentMonth, getCurrentYear } from "./helpers"
-import APIResponse from "./responeType"
+import { QueryFunctionContext } from '@tanstack/react-query'
+import { getCurrentMonth, getCurrentYear } from './helpers'
+import APIResponse from './responeType'
 
 const baseUrl = `https://api.aladhan.com/v1/calendarByCity`
 
