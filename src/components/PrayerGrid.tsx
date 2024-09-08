@@ -7,34 +7,35 @@ type propsType = {
 
 function PrayerGrid({ praysData }: propsType) {
   return (
-    <div className='flex justify-between'>
+    <div className='mx-auto flex w-4/5 flex-col justify-between gap-y-2'>
       <PrayCard
-        prayName='منتصف الليل'
-        time={praysData?.Midnight}
-      />
-      <PrayCard
-        prayName='العشاء'
-        time={praysData?.Isha}
-      />
-      <PrayCard
-        prayName='المغرب'
-        time={praysData?.Maghrib}
-      />
-      <PrayCard
-        prayName='العصر'
-        time={praysData?.Asr}
-      />
-      <PrayCard
-        prayName='الظهر'
-        time={praysData?.Dhuhr}
+        prayName='الفجر'
+        time={praysData?.Fajr}
       />
       <PrayCard
         prayName='الشروق'
         time={praysData?.Sunrise}
       />
       <PrayCard
-        prayName='الفجر'
-        time={praysData?.Fajr}
+        prayName='الظهر'
+        time={praysData?.Dhuhr}
+      />
+      <PrayCard
+        prayName='العصر'
+        time={praysData?.Asr}
+      />
+      <PrayCard
+        prayName='المغرب'
+        time={praysData?.Maghrib}
+      />
+
+      <PrayCard
+        prayName='العشاء'
+        time={praysData?.Isha}
+      />
+      <PrayCard
+        prayName='منتصف الليل'
+        time={praysData?.Midnight}
       />
     </div>
   )

@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      <div className='mx-auto w-[80%]'>
+      <div className='mx-auto w-1/2'>
         <div className='mb-16 mt-2 flex w-full items-center'>
           <h1 className='text-4xl'>صلواتي</h1>
           <CitySelect
