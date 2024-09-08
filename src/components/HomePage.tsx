@@ -1,5 +1,5 @@
 import { getCurrentDayNumber } from "../utils/dates"
-import APIResponse from "../services/api/aladan/responeType"
+import APIResponse from "../types"
 import PrayerGrid from "./PrayerGrid"
 
 type propsType = {

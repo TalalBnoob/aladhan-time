@@ -1,4 +1,4 @@
-import { Timings } from "../services/api/aladan/responeType"
+import { Timings } from "../types"
 import PrayCard from "./PrayCard"
 
 type propsType = {
