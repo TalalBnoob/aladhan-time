@@ -7,7 +7,7 @@ type propsType = {
 
 function PrayerGrid({ praysData }: propsType) {
   return (
-    <div className='mx-auto flex w-4/5 flex-col justify-between gap-y-2'>
+    <div className='mx-auto flex w-5/6 flex-col justify-between gap-y-2 md:w-3/4'>
       <PrayCard
         prayName='الفجر'
         time={praysData?.Fajr}

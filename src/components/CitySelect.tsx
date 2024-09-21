@@ -41,7 +41,7 @@ function CitySelect(props: propsType) {
       <select
         onChange={props.onChange}
         id='select city'
-        className='max-w-40 rounded bg-gray-700 px-2 py-1 text-right text-gray-100  focus:outline-none'
+        className='w-20 rounded bg-gray-700 px-2 py-1 text-right text-gray-100 focus:outline-none  md:max-w-40'
         name='country'
       >
         {countries.sa.map((city) => (
