@@ -1,19 +1,19 @@
-import { getCurrentDayNumber } from '../utils/dates'
 import APIResponse from '../types'
 import PrayerGrid from './PrayerGrid'
 
 type propsType = {
   isPending: boolean
   data: APIResponse | undefined
+  date: Date | undefined
 }
 
-function HomePage(props: propsType) {
+function HomePage({ isPending, data, date }: propsType) {
   return (
     <>
-      {props.isPending ? (
+      {isPending ? (
         <h1 className='text-center text-2xl'>.....تحميل اوقات الصلاة</h1>
       ) : (
-        <PrayerGrid praysData={props.data?.data[getCurrentDayNumber() - 1].timings} />
+        <PrayerGrid praysData={data?.data[date.getDate() - 1].timings} />
       )}
     </>
   )

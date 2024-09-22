@@ -1,4 +1,3 @@
-export function getCurrentDayNumber(): number {
-  const date = new Date()
+export function getCurrentDayNumber(date: Date): number {
   return date.getDate()
 }

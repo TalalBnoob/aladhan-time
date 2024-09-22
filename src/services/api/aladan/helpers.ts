@@ -1,12 +1,10 @@
-export function getCurrentYear(): number {
-  const currentDate = new Date()
-  const currentYear = currentDate.getFullYear()
+export function getCurrentYear(date: Date): number {
+  const currentYear = date.getFullYear()
   return currentYear
 }
 
-export function getCurrentMonth(): number {
-  const currentDate = new Date()
-  const currentMonth = currentDate.getMonth()
+export function getCurrentMonth(date: Date): number {
+  const currentMonth = date.getMonth()
   return currentMonth
 }
 

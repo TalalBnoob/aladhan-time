@@ -1,18 +1,18 @@
 import { useQuery } from '@tanstack/react-query'
 import { getAladanData } from './services/api/aladan/api'
-import { getCurrentDayNumber } from './utils/dates'
 import HomePage from './components/HomePage'
 import CitySelect from './components/CitySelect'
 import { ChangeEvent, useState } from 'react'
 import DatePicker from './components/DatePicker'
 import { useDate } from './hooks/useDate'
+import { getCurrentMonth, getCurrentYear } from './services/api/aladan/helpers'
 
 function App() {
   const { time } = useDate()
   const [city, setCity] = useState('Riyadh')
-  const [date, setDate] = useState<Date>(new Date())
+  const [date, setDate] = useState<Date | undefined>(new Date())
   const { data, isSuccess, isPending } = useQuery({
-    queryKey: ['aladanTime', city, date],
+    queryKey: ['aladanTime', city, getCurrentMonth(date as Date) + 1, getCurrentYear(date as Date)],
     queryFn: getAladanData,
   })
 
@@ -29,8 +29,8 @@ function App() {
             {isSuccess ? (
               <h4 className='flex gap-3 text-xl	'>
                 <div className='flex gap-1'>
-                  <span>{data?.data[getCurrentDayNumber() - 1].date.hijri.month.ar}</span>
-                  <span>{data?.data[getCurrentDayNumber() - 1].date.hijri.day}</span>
+                  <span>{data.data[date.getDate() - 1].date.hijri.month.ar}</span>
+                  <span>{data.data[date.getDate() - 1].date.hijri.day}</span>
                 </div>
               </h4>
             ) : (
@@ -41,7 +41,6 @@ function App() {
           <div className='flex flex-col items-center gap-1 gap-y-2 md:flex-row'>
             <DatePicker
               date={date}
-              // FIXME: Excuse me but i think this dose not work 😥
               setDate={setDate}
             />
             <CitySelect
@@ -53,6 +52,7 @@ function App() {
         <HomePage
           isPending={isPending}
           data={data}
+          date={date}
         />
       </div>
     </>

@@ -8,7 +8,7 @@ import { Calendar } from '@/components/ui/calendar'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 
 type DatePickerProps = {
-  date: Date
+  date: Date | undefined
   setDate: React.Dispatch<React.SetStateAction<Date | undefined>>
 }
 
